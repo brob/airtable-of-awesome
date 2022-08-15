@@ -5,14 +5,13 @@ let base = new Airtable({ apiKey: process.env.AIRTABLE_API }).base(process.env.B
 module.exports = async () => {
   const data = await new Promise((resolve, reject) => {
     let allDatasets = []; // change 'allDatasets' to something more relevant to your project
-      base('Wins') // change 'New' to your base name
+      base('Copy') // change 'New' to your base name
         .select({ view: 'Grid view' }) // change 'All' to your view name
         .eachPage(
           function page(records, fetchNextPage) {
             records.forEach((record) => {
               allDatasets.push({
                 "id" : record._rawJson.id,
-                "title": record._rawJson.fields['Title of win'],
                 ...record._rawJson.fields
               });
             });

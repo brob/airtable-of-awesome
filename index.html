@@ -5,11 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        html {
+            font-size: 110%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Wins</h1>
+    <h1>Wins about Bryan and Erin!</h1>
     {% for win in airtable %}
-        {{ win.title }}
+        <h2>{{ win.title }}</h2>
+        <p>{{ win.description }}</p>
+        <h3>Who is awesome this time?</h3>
+        <ul>
+            {% for person in win.winner %}
+                <li>{{ person.name }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Categories of the win!</h3>
+        <ul>
+            {% for category in win.category %}
+                {{ category }}
+            {% endfor %}
+        </ul>
     {% endfor %}
 </body>
 </html>
