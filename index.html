@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
     <h1>Wins about Bryan and Erin!</h1>
-    {% for win in airtable %}
-        <h2>{{ win.title }}</h2>
-        <p>{{ win.description }}</p>
-        <h3>Who is awesome this time?</h3>
-        <ul>
-            {% for person in win.winner %}
+    <div class="cards">
+        {% for win in airtable %}
+        <div class="card">
+            <h2>{{ win.title }}</h2>
+            <p>{{ win.description }}</p>
+            <h3>Who is awesome this time?</h3>
+            <ul>
+                {% for person in win.winner %}
                 <li>{{ person.name }}</li>
-            {% endfor %}
-        </ul>
-        <h3>Categories of the win!</h3>
-        <ul>
-            {% for category in win.category %}
+                {% endfor %}
+            </ul>
+            <h3>Categories of the win!</h3>
+            <ul>
+                {% for category in win.category %}
                 {{ category }}
-            {% endfor %}
-        </ul>
-    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+
+    </div>
+
 </body>
+
 </html>

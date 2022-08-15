@@ -2,5 +2,18 @@ html {
     font-size: 110%;
 }
 body {
+    background-image: linear-gradient(to bottom right, #ff4ef6 0%, #772ecb 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.cards  {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+.card {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
 }
